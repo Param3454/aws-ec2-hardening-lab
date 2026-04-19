@@ -1,0 +1,17 @@
+# --- Basic Identification ---
+# Replace YOUR_DOMAIN with your actual domain name (e.g., example.com)
+myhostname = mail.YOUR_DOMAIN
+mydomain = YOUR_DOMAIN
+
+# --- Security Hardening ---
+# Restrict to localhost to prevent becoming an Open Relay for external spam
+inet_interfaces = localhost
+
+# Define local delivery destinations
+mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain
+
+# --- OpenDKIM Integration (Milter) ---
+# Routes outgoing mail through the OpenDKIM signing station on port 8891
+smtpd_milters = inet:127.0.0.1:8891
+non_smtpd_milters = $smtpd_milters
+milter_default_action = accept
