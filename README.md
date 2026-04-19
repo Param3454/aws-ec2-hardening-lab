@@ -18,8 +18,6 @@ TCP SYN Cookies: Enabled to mitigate SYN Flood (DoS) attacks.
 
 Source Routing: Disabled to prevent IP spoofing.
 
-Intrusion Prevention: Configured Fail2Ban to automatically jail IPs exhibiting brute-force behavior.
-
 Resource Management: Established a 2GB Swap file to prevent Out-of-Memory (OOM) errors on T-series micro instances.
 
 ### Phase 2: Secure Web Deployment (Nginx)
@@ -61,10 +59,12 @@ Bash
 PermitRootLogin no
 PasswordAuthentication no
 MaxAuthTries 3
+
 #### Kernel Hardening (/etc/sysctl.d/99-hardening.conf)
 Bash
 net.ipv4.conf.all.accept_source_route = 0
 net.ipv4.tcp_syncookies = 1
+
 #### Nginx Security Headers (/etc/nginx/conf.d/security.conf)
 Nginx
 server_tokens off;
