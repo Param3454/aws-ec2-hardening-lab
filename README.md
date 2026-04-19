@@ -46,6 +46,8 @@ DKIM (OpenDKIM): Generated RSA keys and established a "Milter" bridge to sign ou
 
 DMARC: Implemented a reporting policy to monitor alignment between SPF and DKIM.
 
+Note: Full sanitized configuration files for Postfix and OpenDKIM can be found in the /configs directory
+
 ### Technical Skills Demonstrated
 AWS: EC2, Route 53, IAM Policy Creation (Least Privilege), Security Groups.
 
